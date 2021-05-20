@@ -1,0 +1,131 @@
+/** Mobile first design **/
+body{
+    background-color:hsl(222, 26%, 31%);
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90vw;
+    margin: auto;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Spartan', sans-serif;
+
+}
+
+.calc-theme> .calc {
+    font-size: 30px;
+    color: white;
+
+}
+
+.calc-theme > .theme {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 20px;
+    align-items: center;
+}
+
+.calc-theme > .theme > .toggle-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 5px;
+    justify-items: center;
+}
+.calc-theme{
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: baseline;
+
+}
+
+.calc-theme > .theme > .toggle-grid> .bar{
+    background-color: hsl(223, 31%, 20%);
+    justify-self: stretch;
+    padding:5px;
+    grid-column:1/span 3;
+    
+}
+
+
+
+.red-dot{
+    height:2vh;
+    width: 2vh;
+    background-color: hsl(6, 63%, 50%);
+    border-radius: 50%;
+}
+
+.result{
+    flex-grow: 0;
+    background-color: hsl(224, 36%, 15%);
+    border-radius: 10px;
+    color: white;
+    text-align: right;
+    padding: 15px;
+}
+
+.buttons{
+    flex-grow: 0;
+    background-color: hsl(223, 31%, 20%);
+    display: grid;
+    grid-template-columns: repeat(4, 25fr);
+    gap: 20px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+
+.buttons> .a-button{
+    font-size: 32px;
+    background-color: hsl(30, 25%, 89%);
+    box-shadow: 0px 7px hsl(28, 16%, 65%);
+    border-radius: 10px;
+    color: hsl(221, 14%, 31%);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.reset{
+    grid-column:1/span 2;
+}
+
+.equals{
+    grid-column:3/span 2;
+}
+
+.buttons>.special-button-red{
+    background-color: hsl(6, 63%, 50%);
+    box-shadow: 0px 7px hsl(6, 70%, 34%);
+    color: white;
+    font-size: 25px;
+}
+
+.buttons>.special-button-grey{
+    background-color: hsl(225, 21%, 49%);
+    box-shadow: 0px 7px hsl(224, 28%, 35%);
+    color: white;
+    font-size: 25px;
+}
+
+h2{
+    font-size: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+    /** For desktop**/
+    .main{
+        max-width: 600px;
+    }
+    
+}
