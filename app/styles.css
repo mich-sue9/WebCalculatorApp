@@ -1,6 +1,58 @@
 /** Mobile first design **/
+
+
+.theme1{
+    --main-bg-color: hsl(222, 26%, 31%);
+    --toggle-keypad-bg-color: hsl(223, 31%, 20%);
+    --screen-bg-color: hsl(224, 36%, 15%);
+    --key-del-reset-bg: hsl(225, 21%, 49%);
+    --key-del-reset-shadow:hsl(224, 28%, 35%);
+    --equals-bg: hsl(6, 63%, 50%);
+    --equals-shadow: hsl(6, 70%, 34%);
+    --key-bg:hsl(30, 25%, 89%);
+    --key-bg-shadow: hsl(28, 16%, 65%);
+    --text-reset-del-color:hsl(0, 0%, 100%);
+    --text-equals-color:hsl(0, 0%, 100%);
+    --text-buttons-color: hsl(221, 14%, 31%);
+    --text-calc-theme-result-color: hsl(0, 0%, 100%);
+}
+
+.theme2{
+    --main-bg-color: hsl(0, 0%, 90%);
+    --toggle-keypad-bg-color: hsl(0, 5%, 81%);
+    --screen-bg-color: hsl(0, 0%, 93%);
+    --key-del-reset-bg: hsl(185, 42%, 37%);
+    --key-del-reset-shadow:hsl(185, 58%, 25%);
+    --equals-bg: hsl(25, 98%, 40%);
+    --equals-shadow: hsl(25, 99%, 27%);
+    --key-bg:hsl(45, 7%, 89%);
+    --key-bg-shadow: hsl(35, 11%, 61%);
+    --text-reset-del-color:hsl(0, 0%, 100%);
+    --text-equals-color:hsl(0, 0%, 100%);
+    --text-buttons-color: hsl(60, 10%, 19%);
+    --text-calc-theme-result-color: hsl(60, 10%, 19%)
+
+}
+
+.theme3{
+    --main-bg-color: hsl(268, 75%, 9%);
+    --toggle-keypad-bg-color: hsl(268, 71%, 12%);
+    --screen-bg-color: hsl(268, 71%, 12%);
+    --key-del-reset-bg:  hsl(281, 89%, 26%);
+    --key-del-reset-shadow:hsl(285, 91%, 52%);
+    --equals-bg: hsl(176, 100%, 44%);
+    --equals-shadow: hsl(177, 92%, 70%);
+    --key-bg:hsl(268, 47%, 21%);
+    --key-bg-shadow: hsl(290, 70%, 36%);
+    --text-reset-del-color:hsl(0, 0%, 100%);
+    --text-equals-color:hsl(198, 20%, 13%);
+    --text-buttons-color: hsl(52, 100%, 62%);
+    --text-calc-theme-result-color: hsl(52, 100%, 62%);
+
+}
+
 body{
-    background-color:hsl(222, 26%, 31%);
+    background-color:var(--main-bg-color);
 }
 .main{
     display: flex;
@@ -16,14 +68,14 @@ body{
 
 .calc-theme> .calc {
     font-size: 30px;
-    color: white;
+    color: var(--text-calc-theme-result-color);
 
 }
 
 .calc-theme > .theme {
     display: flex;
     flex-direction: row;
-    color: white;
+    color: var(--text-calc-theme-result-color);
     gap: 20px;
     align-items: center;
 }
@@ -34,6 +86,7 @@ body{
     column-gap: 10px;
     row-gap: 5px;
     justify-items: center;
+    width: 10em;
 }
 .calc-theme{
     flex-grow: 0;
@@ -45,34 +98,37 @@ body{
 }
 
 .calc-theme > .theme > .toggle-grid> .bar{
-    background-color: hsl(223, 31%, 20%);
+    background-color: var(--toggle-keypad-bg-color);
     justify-self: stretch;
     padding:5px;
     grid-column:1/span 3;
-    
+    border-radius: 1em;
 }
 
 
 
 .red-dot{
-    height:2vh;
-    width: 2vh;
-    background-color: hsl(6, 63%, 50%);
+    height:1.5em;
+    width: 1.5em;
+    background-color: var(--equals-bg);
     border-radius: 50%;
+    transition: 0.5s;
+    
+    
 }
 
 .result{
     flex-grow: 0;
-    background-color: hsl(224, 36%, 15%);
+    background-color: var(--screen-bg-color);
     border-radius: 10px;
-    color: white;
+    color: var(--text-calc-theme-result-color);
     text-align: right;
     padding: 15px;
 }
 
 .buttons{
     flex-grow: 0;
-    background-color: hsl(223, 31%, 20%);
+    background-color: var(--toggle-keypad-bg-color);
     display: grid;
     grid-template-columns: repeat(4, 25fr);
     gap: 20px;
@@ -85,16 +141,20 @@ body{
 
 .buttons> .a-button{
     font-size: 32px;
-    background-color: hsl(30, 25%, 89%);
-    box-shadow: 0px 7px hsl(28, 16%, 65%);
+    background-color: var(--key-bg);
+    box-shadow: 0px 7px var(--key-bg-shadow);
     border-radius: 10px;
-    color: hsl(221, 14%, 31%);
+    color: var(--text-buttons-color);
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     
 }
+.buttons> .a-button:hover {
+    background-color: var(--key-bg-shadow);
+}
+
 
 .reset{
     grid-column:1/span 2;
@@ -105,17 +165,27 @@ body{
 }
 
 .buttons>.special-button-red{
-    background-color: hsl(6, 63%, 50%);
-    box-shadow: 0px 7px hsl(6, 70%, 34%);
-    color: white;
+    background-color: var(--equals-bg);
+    box-shadow: 0px 7px var(--equals-shadow);
+    color: var(--text-equals-color);
     font-size: 25px;
 }
 
+.buttons>.special-button-red:hover{
+    background-color: var(--equals-shadow);
+}
+
+
+
 .buttons>.special-button-grey{
-    background-color: hsl(225, 21%, 49%);
-    box-shadow: 0px 7px hsl(224, 28%, 35%);
-    color: white;
+    background-color: var(--key-del-reset-bg);
+    box-shadow: 0px 7px var(--key-del-reset-shadow);
+    color: var(--text-reset-del-color);
     font-size: 25px;
+}
+
+.buttons>.special-button-grey:hover{
+    background-color: var(--key-del-reset-shadow);
 }
 
 h2{
