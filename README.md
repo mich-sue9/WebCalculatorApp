@@ -26,10 +26,14 @@ Users should be able to:
 - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser - TO DO
 
 ### Screenshot
-
+Theme 1:
 ![](./Screenshots/theme1.png)
-![./Screenshots/theme2.png]
-![./Screenshots/theme3.png]
+
+Theme 2:
+![](./Screenshots/theme2.png)
+
+Theme 3:
+![](./Screenshots/theme3.png)
 
 
 ### Links
@@ -45,7 +49,6 @@ Will be adding links soon...
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [Styled Components](https://styled-components.com/) - For styles
 
 
 ## Author
