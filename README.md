@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![./Screenshots/theme1.png]
+![](./Screenshots/theme1.png)
 ![./Screenshots/theme2.png]
 ![./Screenshots/theme3.png]
 
