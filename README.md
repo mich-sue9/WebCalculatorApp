@@ -38,7 +38,7 @@ Theme 3:
 
 ### Links
 
-Will be adding links soon... 
+CodePen: https://codepen.io/mich-sue9/pen/XWMzYxO
 
 
 ### Built with
