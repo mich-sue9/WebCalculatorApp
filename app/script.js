@@ -1,15 +1,16 @@
 /**** Basic Calculator logic  */
 var elements = document.getElementsByClassName("a-button");
 var numberRegex = new RegExp("^[0-9]$");
-var n1 = "";
+var n1 = ""; //numerator 1
+var n2 = ""; // numerator 2
 var operatorPressed = false;
-var equalOpLastPressed = false;
+var startNewNumerator = false; 
 var plus = false;
 var minus = false;
 var divide = false;
 var multiply = false;
-var equals = false;
-var n2 = "";
+var equalsPressedWithoutOperator = false;
+
 
 var buttonClick = function (e) {
   e.preventDefault();
@@ -20,26 +21,28 @@ var buttonClick = function (e) {
     resetPressed();
   } else if (valPressed === "=") {
     equalsPressed();
+    startNewNumerator = true;
   } else if (numberRegex.test(valPressed) || valPressed === ".") {
     numberPressed(valPressed);
+    startNewNumerator = false;
   } else if (valPressed === "+") {
     allFalse();
     operatorPressed = true;
     plus = true;
-    equalOpLastPressed = true;
+    startNewNumerator = true;
   } else if (valPressed === "-") {
     allFalse();
     operatorPressed = true;
     minus = true;
-    equalOpLastPressed = true;
+    startNewNumerator = true;
   } else if (valPressed === "X") {
     allFalse();
     operatorPressed = true;
-    equalOpLastPressed = true;
+    startNewNumerator = true;
   } else if (valPressed === "/") {
     allFalse();
     operatorPressed = true;
-    equalOpLastPressed = true;
+    startNewNumerator = true;
   }
   return false;
 };
@@ -49,22 +52,21 @@ function numberPressed(valPressed) {
     n1 += valPressed;
     document.querySelector(".result>h1").innerHTML = n1;
   } else {
-    if (equalOpLastPressed) {
+    if (startNewNumerator) {
+      n1 = n2;
       n2 = valPressed;
     } else {
       n2 += valPressed;
     }
-
     document.querySelector(".result>h1").innerHTML = n2;
   }
-  equalOpLastPressed = false;
 }
 function equalsPressed() {
   if (operatorPressed == false) {
-    equals = true;
+    equalsPressedWithoutOperator = true;
     operatorPressed = true;
   } else {
-    if (equals && n2 !== "") {
+    if (equalsPressedWithoutOperator && n2 !== "") {
       n1 = n2;
       n2 = "";
     } else {
@@ -83,7 +85,6 @@ function equalsPressed() {
     }
   }
   document.querySelector(".result>h1").innerHTML = n1;
-  equalOpLastPressed = true;
 }
 function resetPressed() {
   n1 = "";
@@ -111,12 +112,12 @@ function deletePressed() {
 
 function allFalse() {
   operatorPressed = true;
-  equals = false;
+  equalsPressedWithoutOperator = false;
   plus = false;
   minus = false;
   divide = true;
   multiply = false;
-  equalOpLastPressed = false;
+  startNewNumerator = false;
 }
 
 for (var i = 0; i < elements.length; i++) {
@@ -126,11 +127,9 @@ for (var i = 0; i < elements.length; i++) {
 /*** Toggle code */
 var togglePosition = 0;
 var toggleArea = document.getElementsByClassName("toggle-grid");
-console.log(toggleArea);
 toggleArea[0].addEventListener("click", toggleClick);
 
 function toggleClick() {
-  console.log("click");
   if (togglePosition === 0) {
     togglePosition = 1;
     document
