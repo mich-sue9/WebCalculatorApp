@@ -120,7 +120,7 @@ function allFalse() {
   startNewNumerator = false;
 }
 
-for (var i = 0; i < elements.length; i++) {
+for (let i = 0; i < elements.length; i++) {
   elements[i].addEventListener("click", buttonClick);
 }
 
