@@ -1,5 +1,7 @@
 /** Mobile first design **/
-
+:root{
+  cursor: pointer;
+}
 .theme1 {
   --main-bg-color: hsl(222, 26%, 31%);
   --toggle-keypad-bg-color: hsl(223, 31%, 20%);
